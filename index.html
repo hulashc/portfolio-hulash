@@ -90,6 +90,29 @@
         }
     </style>
 
+    <style>
+        /* Allow scrolling but hide scrollbar visuals */
+
+        html,
+        body {
+            overflow-y: auto;
+            /* scrolling ON */
+            overflow-x: hidden;
+            /* no horizontal scroll */
+        }
+
+        /* Chrome, Edge, Safari */
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+        }
+
+        /* Firefox */
+        html {
+            scrollbar-width: none;
+        }
+    </style>
+
     <style id='toc-screen-inline-css' type='text/css'>
         div#toc_container {
             width: 100%;
