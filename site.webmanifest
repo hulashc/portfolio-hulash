@@ -1,0 +1,21 @@
+{
+  "name": "Hulash Chand Donempudi",
+  "short_name": "Hulash",
+  "description": "Data Engineer portfolio - scalable data systems across cloud, analytics, and automation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#cccccc",
+  "theme_color": "#cccccc",
+  "icons": [
+    {
+      "src": "/content/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/content/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
