@@ -206,71 +206,6 @@
             .project-list-item { font-size: 16px; }
             .project-list-item__sub { display: none; }
         }
-
-        /* ═══════════ IFRAME OVERLAY MODAL ═══════════ */
-        #project-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background: rgba(0,0,0,0.0);
-            transition: background 0.35s ease;
-        }
-        #project-overlay.visible {
-            display: flex;
-            flex-direction: column;
-            background: rgba(0,0,0,0.85);
-        }
-        #project-overlay-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 24px;
-            background: #0d0d0f;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            flex-shrink: 0;
-        }
-        #project-overlay-title {
-            font-family: inherit;
-            font-size: 14px;
-            font-weight: 300;
-            letter-spacing: 0.06em;
-            color: rgba(255,255,255,0.6);
-            text-transform: uppercase;
-        }
-        #project-overlay-close {
-            background: none;
-            border: none;
-            color: rgba(255,255,255,0.5);
-            font-size: 22px;
-            line-height: 1;
-            cursor: pointer;
-            padding: 0 4px;
-            transition: color 0.2s ease;
-            font-family: inherit;
-        }
-        #project-overlay-close:hover { color: #fff; }
-        #project-overlay iframe {
-            flex: 1;
-            width: 100%;
-            border: none;
-            background: #0d0d0f;
-        }
-        /* Slide-up animation */
-        #project-overlay-inner {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            height: 100%;
-            transform: translateY(40px);
-            opacity: 0;
-            transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1),
-                        opacity 0.35s ease;
-        }
-        #project-overlay.visible #project-overlay-inner {
-            transform: translateY(0);
-            opacity: 1;
-        }
     </style>
 
 </head>
@@ -439,7 +374,7 @@
                 <img class="projects-list__preview" id="list-preview" src="" alt="">
 
                 <a class="project-list-item"
-                    data-url="https://hulashc.github.io/hulash-portfolio/projects/celestian-labs/"
+                    href="projects/celestian-labs/index.html"
                     data-img="https://hulashc.github.io/hulash-portfolio/content/uploads/2025/celestian-labs-AAI/celestian-labs-0.png"
                     data-date="20260214" data-name="Celestian Labs">
                     <span class="project-list-item__name">Celestian Labs</span>
@@ -447,7 +382,7 @@
                 </a>
 
                 <a class="project-list-item"
-                    data-url="https://hulashc.github.io/hulash-portfolio/projects/system-design-architecture/"
+                    href="projects/system-design-architecture/index.html"
                     data-img="https://hulashc.github.io/hulash-portfolio/content/uploads/2025/system-design/system-design-0.png"
                     data-date="20251113" data-name="System Design Architecture">
                     <span class="project-list-item__name">System Design Architecture</span>
@@ -455,7 +390,7 @@
                 </a>
 
                 <a class="project-list-item"
-                    data-url="https://hulashc.github.io/hulash-portfolio/projects/birdsong-mathematical-model/"
+                    href="projects/birdsong-mathematical-model/index.html"
                     data-img="https://hulashc.github.io/hulash-portfolio/content/uploads/2025/bird-song/bird-song-0.png"
                     data-date="20251113" data-name="Bird Song Mathematical Model">
                     <span class="project-list-item__name">Bird Song Mathematical Model</span>
@@ -463,7 +398,7 @@
                 </a>
 
                 <a class="project-list-item"
-                    data-url="https://hulashc.github.io/hulash-portfolio/projects/leetjourney-obsidian-notes/"
+                    href="projects/leetjourney-obsidian-notes/index.html"
                     data-img="https://hulashc.github.io/hulash-portfolio/content/uploads/2025/leet-journey/leet-journey-0.png"
                     data-date="20241121" data-name="Leet Journey">
                     <span class="project-list-item__name">Leet Journey</span>
@@ -471,7 +406,7 @@
                 </a>
 
                 <a class="project-list-item"
-                    data-url="https://hulashc.github.io/hulash-portfolio/projects/bhagavad-gita-telugu/"
+                    href="projects/bhagavad-gita-telugu/index.html"
                     data-img="https://hulashc.github.io/hulash-portfolio/content/uploads/2025/bagvadh-gita-telugu/bagvadh-gita.png"
                     data-date="20251121" data-name="Bhagavad Gita Telugu">
                     <span class="project-list-item__name">Bhagavad Gita Telugu</span>
@@ -481,19 +416,6 @@
 
         </section>
         <!-- ═══════════════════════ end projects ═══════════════════════ -->
-
-        <!-- ═══════════════════════════════════════════
-             PROJECT OVERLAY MODAL (iframe)
-        ════════════════════════════════════════════ -->
-        <div id="project-overlay">
-            <div id="project-overlay-inner">
-                <div id="project-overlay-bar">
-                    <span id="project-overlay-title"></span>
-                    <button id="project-overlay-close" onclick="closeProjectOverlay()" aria-label="Close">&times;</button>
-                </div>
-                <iframe id="project-overlay-frame" src="" title="Project" allow="fullscreen"></iframe>
-            </div>
-        </div>
 
         <section id="section-5" class="section-quote-slider pv-large section-colorway-white">
             <div class="hide-overflow">
@@ -869,12 +791,15 @@
             document.getElementById('btn-date').classList.toggle('active', s === 'date');
             document.getElementById('btn-az').classList.toggle('active', s === 'az');
             var container = document.getElementById('projects-list');
+            var preview = document.getElementById('list-preview');
             var items = Array.from(container.querySelectorAll('.project-list-item'));
             items.sort(function(a, b) {
                 if (currentSort === 'date') return parseInt(b.dataset.date) - parseInt(a.dataset.date);
                 return a.dataset.name.localeCompare(b.dataset.name);
             });
             items.forEach(function(el) { container.appendChild(el); });
+            /* Keep preview at end */
+            container.appendChild(preview);
         }
 
         /* ── Hover preview image ── */
@@ -898,39 +823,6 @@
             preview.style.left = x + 'px';
             preview.style.top = y + 'px';
         }
-
-        /* ── Iframe overlay ── */
-        var overlay = document.getElementById('project-overlay');
-        var overlayFrame = document.getElementById('project-overlay-frame');
-        var overlayTitle = document.getElementById('project-overlay-title');
-
-        document.querySelectorAll('.project-list-item').forEach(function(item) {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                var url = this.dataset.url;
-                var name = this.dataset.name;
-                overlayTitle.textContent = name;
-                overlayFrame.src = url;
-                overlay.classList.add('visible');
-                document.body.style.overflow = 'hidden';
-            });
-        });
-
-        function closeProjectOverlay() {
-            overlay.classList.remove('visible');
-            document.body.style.overflow = '';
-            setTimeout(function() { overlayFrame.src = ''; }, 400);
-        }
-
-        /* Close on backdrop click (outside the inner panel) */
-        overlay.addEventListener('click', function(e) {
-            if (e.target === overlay) closeProjectOverlay();
-        });
-
-        /* Close on Escape key */
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeProjectOverlay();
-        });
     </script>
 
 </body>
