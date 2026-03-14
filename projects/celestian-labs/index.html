@@ -8,11 +8,19 @@
 	<meta name="description" content="Celestian Labs – Agentic Artificial Intelligence platform by Hulash Chand.">
 	<link rel="icon" type="image/png" href="/content/logo.png">
 	<link rel='stylesheet' href='/styles.css' type='text/css' media='all' />
-	<script src="/project-core.js"></script>
-	<script>
-		window.PROJECT_COLOR = '#b3c6f2';
-	</script>
 
+	<!-- ── CORE: do not change these 4 lines ── -->
+	<script src="/wp-includes/js/jquery/jquery.minf43b.js"></script>
+	<script src="/jquery.bez.mind4d0.js"></script>
+	<script src="/jquery.easing.1.3d4d0.js"></script>
+	<script src="/project-core.js"></script>
+	<!-- ── PROJECT-SPECIFIC: update these 2 values for each project ── -->
+	<script>
+		projects = PROJECTS;
+		document.querySelector(':root').style.setProperty('--background', '#b3c6f2');
+		document.querySelector(':root').style.setProperty('--mono', '#b3c6f2');
+	</script>
+	<script src="/app.min8a54.js"></script>
 </head>
 
 <body class="project init">
@@ -79,11 +87,10 @@
 	</main>
 
 	<footer>
-		<p>&copy; <span id="footer-year"></span> Hulash Chand &mdash; Rochdale, UK</p>
+		<p>&copy; <span id="footer-year"></span> Hulash Chand</p>
 	</footer>
-	<script>
-		document.getElementById('footer-year').textContent = new Date().getFullYear();
-	</script>
+	<script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+
 </body>
 
 </html>
