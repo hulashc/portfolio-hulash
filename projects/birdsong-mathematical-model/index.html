@@ -81,65 +81,78 @@
 				</div>
 
 				<div class="large">
-					<div
-						style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:60px 80px;background:linear-gradient(135deg,#0a0e27 0%,#1a1f3a 100%);height:100%;min-height:480px;">
-						<h3
-							style="font-size:28px;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;color:#fff;margin-bottom:32px;border-left:3px solid #00ffcc;padding-left:20px;">
-							Spatiotemporal Acoustic Manifold</h3>
-						<ul
-							style="list-style:none;padding:0;margin:0;font-size:15px;line-height:1.9;color:rgba(255,255,255,0.75);max-width:700px;">
-							<li style="margin-bottom:18px;padding-left:24px;position:relative;"><span
-									style="position:absolute;left:0;top:0;color:#00ffcc;font-weight:600;">&#8594;</span>Birdsong
-								treated as a <strong style="color:#00ffcc">trajectory through 3D space</strong> rather
-								than just a waveform.</li>
-							<li style="margin-bottom:18px;padding-left:24px;position:relative;"><span
-									style="position:absolute;left:0;top:0;color:#00ffcc;font-weight:600;">&#8594;</span>Each
-								point encodes the <strong style="color:#00ffcc">timbre</strong> as high-dimensional MFCC
-								features.</li>
-							<li style="margin-bottom:18px;padding-left:24px;position:relative;"><span
-									style="position:absolute;left:0;top:0;color:#00ffcc;font-weight:600;">&#8594;</span>PCA
-								compresses features into <strong style="color:#00ffcc">PC1, PC2, PC3</strong> (X, Y, Z
-								axes).</li>
-							<li style="margin-bottom:18px;padding-left:24px;position:relative;"><span
-									style="position:absolute;left:0;top:0;color:#00ffcc;font-weight:600;">&#8594;</span><strong
-									style="color:#00ffcc">Loops, twists, clusters</strong> reveal phrases, motifs, and
-								tonal vs noisy sections.</li>
-							<li style="padding-left:24px;position:relative;"><span
-									style="position:absolute;left:0;top:0;color:#00ffcc;font-weight:600;">&#8594;</span>Inspired
-								by Lucio Arese's <em>"Visualizing Bird Songs: A Mathematical Model"</em>.</li>
-						</ul>
+					<div style="display:grid;grid-template-columns:1fr 1fr;gap:0;background:#0a0e27;height:100%;min-height:480px;">
+						<!-- Left Panel: Concept -->
+						<div style="display:flex;flex-direction:column;justify-content:center;padding:50px 60px;background:linear-gradient(135deg,#0a0e27 0%,#12172e 100%);border-right:1px solid rgba(0,255,204,0.15);">
+							<div style="margin-bottom:32px;">
+								<div style="display:inline-block;padding:6px 14px;background:rgba(0,255,204,0.1);border-radius:20px;margin-bottom:16px;">
+									<span style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#00ffcc;">Concept</span>
+								</div>
+								<h3 style="font-size:26px;font-weight:400;line-height:1.3;color:#fff;margin:0;">Spatiotemporal<br>Acoustic Manifold</h3>
+							</div>
+							<ul style="list-style:none;padding:0;margin:0;font-size:14px;line-height:1.8;color:rgba(255,255,255,0.7);">
+								<li style="margin-bottom:16px;padding-left:20px;position:relative;">
+									<span style="position:absolute;left:0;top:2px;color:#00ffcc;font-size:16px;">●</span>
+									Birdsong as <strong style="color:#fff;">3D trajectory</strong>, not waveform
+								</li>
+								<li style="margin-bottom:16px;padding-left:20px;position:relative;">
+									<span style="position:absolute;left:0;top:2px;color:#00ffcc;font-size:16px;">●</span>
+									Each point encodes <strong style="color:#fff;">timbre features</strong>
+								</li>
+								<li style="margin-bottom:16px;padding-left:20px;position:relative;">
+									<span style="position:absolute;left:0;top:2px;color:#00ffcc;font-size:16px;">●</span>
+									PCA reduces to <strong style="color:#fff;">PC1, PC2, PC3</strong> axes
+								</li>
+								<li style="padding-left:20px;position:relative;">
+									<span style="position:absolute;left:0;top:2px;color:#00ffcc;font-size:16px;">●</span>
+									<strong style="color:#fff;">Loops & clusters</strong> reveal song structure
+								</li>
+							</ul>
+							<div style="margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.08);">
+								<p style="margin:0;font-size:12px;line-height:1.6;color:rgba(255,255,255,0.5);font-style:italic;">Inspired by Lucio Arese's<br><em style="color:rgba(255,255,255,0.65);font-style:normal;">"Visualizing Bird Songs: A Mathematical Model"</em></p>
+							</div>
+						</div>
+
+						<!-- Right Panel: Stack -->
+						<div style="display:flex;flex-direction:column;justify-content:center;padding:50px 60px;background:linear-gradient(135deg,#12172e 0%,#0a0e27 100%);">
+							<div style="margin-bottom:32px;">
+								<div style="display:inline-block;padding:6px 14px;background:rgba(255,106,0,0.1);border-radius:20px;margin-bottom:16px;">
+									<span style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#ff6a00;">Stack</span>
+								</div>
+								<h3 style="font-size:26px;font-weight:400;line-height:1.3;color:#fff;margin:0;">Python + Three.js<br>+ WebGL</h3>
+							</div>
+							<div style="display:flex;flex-direction:column;gap:24px;">
+								<div style="padding:20px;background:rgba(255,255,255,0.03);border-left:2px solid #ff6a00;border-radius:4px;">
+									<h4 style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#ff6a00;margin:0 0 8px 0;">Feature Extraction</h4>
+									<p style="margin:0;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.65);">40 MFCCs + chroma + spectral features.<br>Standardised → PCA to 3D.</p>
+								</div>
+								<div style="padding:20px;background:rgba(255,255,255,0.03);border-left:2px solid #00ffcc;border-radius:4px;">
+									<h4 style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#00ffcc;margin:0 0 8px 0;">3D Visualisation</h4>
+									<p style="margin:0;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.65);">Catmull–Rom spline path.<br>Audio-synced dot with comet trail.</p>
+								</div>
+								<div style="padding:20px;background:rgba(255,255,255,0.03);border-left:2px solid #3a6fff;border-radius:4px;">
+									<h4 style="font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#3a6fff;margin:0 0 8px 0;">Interactive Canvas</h4>
+									<p style="margin:0;font-size:13px;line-height:1.7;color:rgba(255,255,255,0.65);">280-frame fading tail.<br>Ghost trajectory at low opacity.</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
 				<div class="large">
-					<div
-						style="display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:60px 80px;background:linear-gradient(135deg,#1a1f3a 0%,#0a0e27 100%);height:100%;min-height:480px;">
-						<h3
-							style="font-size:28px;font-weight:300;letter-spacing:0.15em;text-transform:uppercase;color:#fff;margin-bottom:32px;border-left:3px solid #ff6a00;padding-left:20px;">
-							Technical Implementation</h3>
-						<div style="font-size:14px;line-height:1.8;color:rgba(255,255,255,0.75);max-width:700px;">
-							<div style="margin-bottom:28px;">
-								<h4
-									style="font-size:13px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#ff6a00;margin-bottom:10px;">
-									Feature Extraction &middot; Python + librosa</h4>
-								<p style="margin:0;padding-left:16px;">40 MFCCs + chroma + spectral centroid/bandwidth +
-									rolloff + zero-crossing rate per frame. Features standardised and reduced to 3D with
-									PCA. Frame-aligned time and energy exported to JSON.</p>
+					<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 60px;background:linear-gradient(135deg,#0a0e27 0%,#1a1f3a 50%,#0a0e27 100%);height:100%;min-height:480px;">
+						<div style="max-width:580px;">
+							<div style="display:inline-block;padding:8px 18px;background:rgba(0,255,204,0.12);border-radius:24px;margin-bottom:24px;">
+								<span style="font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#00ffcc;">Research → Code → Art</span>
 							</div>
-							<div style="margin-bottom:28px;">
-								<h4
-									style="font-size:13px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#00ffcc;margin-bottom:10px;">
-									3D Manifold &middot; Three.js + WebGL</h4>
-								<p style="margin:0;padding-left:16px;">Points smoothed with Catmull–Rom spline to create
-									a continuous ribbon path. Moving dot synced to audio.currentTime &rarr; frame index.
-									Dot size and colour map to energy.</p>
-							</div>
-							<div>
-								<h4
-									style="font-size:13px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:#3a6fff;margin-bottom:10px;">
-									Visual Design</h4>
-								<p style="margin:0;padding-left:16px;">Fading comet tail shows last 280 frames. Ghost
-									trajectory reveals global shape at low opacity. Axes labelled PC1 / PC2 / PC3.</p>
+							<h3 style="font-size:32px;font-weight:300;line-height:1.4;color:#fff;margin:0 0 28px 0;letter-spacing:-0.01em;">Turning Academic Papers<br>into Interactive Experiences</h3>
+							<p style="margin:0 0 36px 0;font-size:15px;line-height:1.8;color:rgba(255,255,255,0.65);max-width:480px;margin-left:auto;margin-right:auto;">This project demonstrates how mathematical concepts from signal processing and manifold learning can be made tangible through real-time 3D visualisation — bridging computational research with experiential design.</p>
+							<div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+								<span style="display:inline-block;padding:8px 16px;background:rgba(255,255,255,0.05);border-radius:20px;font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);">Python</span>
+								<span style="display:inline-block;padding:8px 16px;background:rgba(255,255,255,0.05);border-radius:20px;font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);">librosa</span>
+								<span style="display:inline-block;padding:8px 16px;background:rgba(255,255,255,0.05);border-radius:20px;font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);">Three.js</span>
+								<span style="display:inline-block;padding:8px 16px;background:rgba(255,255,255,0.05);border-radius:20px;font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);">WebGL</span>
+								<span style="display:inline-block;padding:8px 16px;background:rgba(255,255,255,0.05);border-radius:20px;font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);">PCA</span>
 							</div>
 						</div>
 					</div>
