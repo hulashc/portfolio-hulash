@@ -15,7 +15,10 @@ var themeOptions = ['mono', 'dark', 'light'];
 var themeCurrent;
 var projects;
 var indexProject = 0;
-var projectScrollTimer = 0;
+let projectScrollTimer = 0;
+let resizeTimer;
+let scrollTicking = false;
+let mouseTicking = false;
 
 // ────────────────────────────────────────────────────────────────
 // VIEW
@@ -34,9 +37,14 @@ view.init = function () {
 
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
+    var resizeTimer;
     window.addEventListener('resize', function () {
-        view.resizer();
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            view.resizer();
+        }, 100);
     });
+
     view.resizer();
     view.themeGet();
 
@@ -132,15 +140,6 @@ view.indexSort = function (a, c) {
     }
 };
 
-view.inViewport = function (a, c, d) {
-    var rect = a.getBoundingClientRect();
-    var html = document.documentElement;
-    return rect.top >= 0 - c &&
-        rect.left >= 0 - d &&
-        rect.bottom <= (window.innerHeight || html.clientHeight) + c &&
-        rect.right <= (window.innerWidth || html.clientWidth) + d;
-};
-
 // ────────────────────────────────────────────────────────────────
 // EVENTS
 // ────────────────────────────────────────────────────────────────
@@ -150,9 +149,19 @@ events.init = function () {
         if (a.state) window.location.href = a.state.url;
     };
 
+    var scrollTicking = false;
     window.addEventListener('scroll', function () {
-        events.scroll();
+        if (!scrollTicking) {
+            requestAnimationFrame(function () {
+                events.scroll();
+                scrollTicking = false;
+            });
+            scrollTicking = true;
+        }
+    }, {
+        passive: true
     });
+
 
     // Theme toggle
     var header = document.querySelector('header');
@@ -267,10 +276,18 @@ events.init = function () {
     events.projectScroll();
 
     if (!('ontouchstart' in document.documentElement)) {
+        var mouseTicking = false;
         document.addEventListener('mousemove', function (a) {
             mouseObj.x = a.pageX;
             mouseObj.y = a.pageY;
+            if (!mouseTicking) {
+                requestAnimationFrame(function () {
+                    mouseTicking = false;
+                });
+                mouseTicking = true;
+            }
         });
+
 
         var projectSlides = document.getElementById('project-slides');
         if (projectSlides) {
@@ -281,20 +298,20 @@ events.init = function () {
 
         // Keyboard navigation
         document.addEventListener('keydown', function (a) {
-            var key = a.keyCode || a.which;
+            var key = a.key;
             var proj = document.getElementById('project');
             var slides = document.getElementById('project-slides');
-            if (key === 37 && proj) {
+            if (key === 'ArrowLeft' && proj) {
                 a.preventDefault();
                 if (!document.body.classList.contains('loading') && slides && !slides.classList.contains('disableSnapping')) {
                     events.goPrevious();
                 }
-            } else if (key === 39 && proj) {
+            } else if (key === 'ArrowRight' && proj) {
                 a.preventDefault();
                 if (!document.body.classList.contains('loading') && slides && !slides.classList.contains('disableSnapping')) {
                     events.goNext();
                 }
-            } else if (key === 27) {
+            } else if (key === 'Escape') {
                 if (document.body.classList.contains('project') || document.body.classList.contains('info')) {
                     window.location.href = '/';
                 }
@@ -360,7 +377,16 @@ events.projectInit = function () {
     var nextAuthor = projects[nextIndex][2];
     var nextName = projects[nextIndex][3];
     var nextEl = document.querySelector('#project-info-counter span.next');
-    if (nextEl) nextEl.innerHTML = '<span>' + nextAuthor + '</span> <span>' + nextName + '</span>';
+    if (nextEl) {
+        nextEl.textContent = '';
+        var s1 = document.createElement('span');
+        var s2 = document.createElement('span');
+        s1.textContent = nextAuthor;
+        s2.textContent = nextName;
+        nextEl.appendChild(s1);
+        nextEl.appendChild(document.createTextNode(' '));
+        nextEl.appendChild(s2);
+    }
 };
 
 events.projectColor = function () {
