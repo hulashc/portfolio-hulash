@@ -23,21 +23,21 @@
     <meta property="og:url" content="https://www.hulash.com/" />
     <meta property="og:site_name" content="Hulash Chand" />
     <meta property="og:image"
-        content="https://raw.githubusercontent.com/hulashc/hulash-portfolio/main/content/logo.png" />
+        content="https://raw.githubusercontent.com/hulashc/portfolio-hulash/main/content/logo.png" />
     <meta property="article:publisher" content="https://github.com/hulashc" />
     <meta property="article:modified_time" content="2026-03-14T15:00:00+00:00" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@hulashc" />
     <meta name="twitter:image"
-        content="https://raw.githubusercontent.com/hulashc/hulash-portfolio/main/content/logo.png" />
+        content="https://raw.githubusercontent.com/hulashc/portfolio-hulash/main/content/logo.png" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png"
-        href="https://raw.githubusercontent.com/hulashc/hulash-portfolio/main/content/logo.png">
+        href="https://raw.githubusercontent.com/hulashc/portfolio-hulash/main/content/logo.png">
     <link rel="shortcut icon" type="image/png"
-        href="https://raw.githubusercontent.com/hulashc/hulash-portfolio/main/content/logo.png">
+        href="https://raw.githubusercontent.com/hulashc/portfolio-hulash/main/content/logo.png">
     <link rel="apple-touch-icon"
-        href="https://raw.githubusercontent.com/hulashc/hulash-portfolio/main/content/logo.png">
+        href="https://raw.githubusercontent.com/hulashc/portfolio-hulash/main/content/logo.png">
 
     <script type="application/ld+json">
         {
@@ -54,7 +54,7 @@
                     "@id": "https://www.hulash.com/#person"
                 },
                 "datePublished": "2026-03-10T17:00:00+00:00",
-                "dateModified": "2026-03-14T15:00:00+00:00",
+                "dateModified": "2026-03-18T15:00:00+00:00",
                 "description": "Hulash Chand – Full-stack developer and data engineer based in London, UK.",
                 "inLanguage": "en-GB",
                 "potentialAction": [{
@@ -115,18 +115,6 @@
         .section-colorway-pastel-turquoise {
             background-color: #2a6b61;
         }
-
-        @media (max-width: 669px) {
-            #section-2 .content-over-img {
-                background-image: url('wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-669x815.webp');
-                background-size: cover;
-                background-position: center;
-            }
-
-            #section-2 .content-over-img__img {
-                display: none;
-            }
-        }
     </style>
 
     <style id='toc-screen-inline-css' type='text/css'>
@@ -151,26 +139,6 @@
     <link rel='preload'
         href='wp-content/uploads/2025/12/u2554752938_Expand_image_-chaos_20_-ar_32_-profile_f7odit3_030cbe68-e877-44b9-9a6d-652d7f8cea38_2-1-669x815.webp'
         media='(max-width: 669px)' as='image' type='image/webp'>
-
-    <style>
-        /* Portrait phones: give section a minimum height so the bg image fills it */
-        @media (max-width: 669px) and (orientation: portrait) {
-            #section-2 .content-over-img {
-                min-height: 100svh;
-                /* svh = small viewport height, accounts for browser chrome */
-            }
-
-            #section-2 .content-over-img__img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    </style>
-
-
 
     <style>
         @font-face {
@@ -410,6 +378,7 @@
                     <p style="text-align: center;"><a href='https://github.com/hulashc' target='_blank'
                             rel='noopener noreferrer' class='btn--outline btn btn--regular'><span class="btn__txt"><span
                                     class="btn__txt-inner" data-txt="View My Work">View My Work</span></span></a>
+                    </p>
                 </div>
             </div>
         </section>
@@ -417,17 +386,9 @@
         <section id="section-2" class="section-text-over-image">
             <div class="content-over-img" data-parallax>
                 <picture class="content-over-img__img">
-                    <!-- Portrait phones (all modern phones in portrait) -->
-                    <source
-                        srcset="wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-430x932.webp"
-                        media="(max-width: 500px) and (orientation: portrait)"
-                        width="430" height="932">
-                    <!-- Landscape mobile / small tablet -->
                     <source
                         srcset="wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-669x815.webp"
-                        media="(max-width: 669px)"
-                        width="669" height="815">
-                    <!-- Desktop fallback -->
+                        media="(max-width: 669px)">
                     <img loading="lazy" class="img-full" width='2560' height='1280'
                         src='wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-2560x1280.webp'
                         alt=''>
@@ -519,7 +480,7 @@
             </div>
 
             <div class="projects-list" id="projects-list">
-                <img class="projects-list__preview" id="list-preview" src="" alt="">
+                <img class="projects-list__preview" id="list-preview" alt="">
 
                 <a class="project-list-item" href="projects/celestian-labs/index.html"
                     data-img="content/uploads/2025/celestian-labs-AAI/celestian-labs-0.png" data-date="20260214"
@@ -854,11 +815,8 @@
                     <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
                         rel='noopener noreferrer'>
                         <picture>
-                            <source
-                                srcset="wp-content/uploads/2025/11/u2554752938_A_tutor_and_a_student_sit_by_the_window_of_a_luxuri_48728427-c697-4fc7-816e-af8c5a94d04b-669x380.webp"
-                                media="(max-width: 669px)">
                             <img loading="lazy" class="img-full" width='1280' height='1699'
-                                src='wp-content/uploads/2025/11/u2554752938_A_tutor_and_a_student_sit_by_the_window_of_a_luxuri_48728427-c697-4fc7-816e-af8c5a94d04b-1280x1699.webp'
+                                src='wp-content/uploads/2025/11/u2554752938_candid_moment_of_two_young_children_laughing_and__a5662579-f20d-491c-8887-ccf1401704dd_2.webp'
                                 alt='Next.js Projects'>
                         </picture>
                         <div class="img-links__item-title">
@@ -870,12 +828,9 @@
                     <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
                         rel='noopener noreferrer'>
                         <picture>
-                            <source
-                                srcset="wp-content/uploads/2025/10/u2554752938_Happy_teenagers_-chaos_10_-ar_34_-sref_httpss._9a86beae-573e-400f-a8e0-d81c7aa6a175_0-669x380.webp"
-                                media="(max-width: 669px)">
                             <img loading="lazy" class="img-full" width='1280' height='1699'
-                                src='wp-content/uploads/2025/10/u2554752938_Happy_teenagers_-chaos_10_-ar_34_-sref_httpss._9a86beae-573e-400f-a8e0-d81c7aa6a175_0.webp'
-                                alt='Python &amp; Data Engineering'>
+                                src='wp-content/uploads/2025/11/u2554752938_candid_moment_of_two_young_children_laughing_and__a5662579-f20d-491c-8887-ccf1401704dd_2.webp'
+                                alt='Next.js Projects'>
                         </picture>
                         <div class="img-links__item-title">
                             <p class="img-links__item-title-txt">Python</p>
@@ -887,12 +842,9 @@
                     <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
                         rel='noopener noreferrer'>
                         <picture>
-                            <source
-                                srcset="wp-content/uploads/2025/10/mattheweva_56578_dynamic_angle_The_pristine_entrance_of_an_eleg_057a44b1-f513-4206-8768-90d9075799f7-669x380.webp"
-                                media="(max-width: 669px)">
-                            <img loading="lazy" class="img-full" width='1280' height='1280'
-                                src='wp-content/uploads/2025/10/mattheweva_56578_dynamic_angle_The_pristine_entrance_of_an_eleg_057a44b1-f513-4206-8768-90d9075799f7.webp'
-                                alt='Machine Learning &amp; AI'>
+                            <img loading="lazy" class="img-full" width='1280' height='1699'
+                                src='wp-content/uploads/2025/11/u2554752938_candid_moment_of_two_young_children_laughing_and__a5662579-f20d-491c-8887-ccf1401704dd_2.webp'
+                                alt='Next.js Projects'>
                         </picture>
                         <div class="img-links__item-title">
                             <p class="img-links__item-title-txt">ML &amp; AI</p>
@@ -903,12 +855,9 @@
                     <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
                         rel='noopener noreferrer'>
                         <picture>
-                            <source
-                                srcset="wp-content/uploads/2025/11/u2554752938_candid_moment_of_two_young_children_laughing_and__a5662579-f20d-491c-8887-ccf1401704dd_2-669x380.webp"
-                                media="(max-width: 669px)">
                             <img loading="lazy" class="img-full" width='1280' height='1699'
                                 src='wp-content/uploads/2025/11/u2554752938_candid_moment_of_two_young_children_laughing_and__a5662579-f20d-491c-8887-ccf1401704dd_2.webp'
-                                alt='Data Visualisation'>
+                                alt='Next.js Projects'>
                         </picture>
                         <div class="img-links__item-title">
                             <p class="img-links__item-title-txt">Tableau</p>
