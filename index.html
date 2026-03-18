@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
     <!-- ═══════════ SECURITY: Content Security Policy ═══════════ -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://use.typekit.net; style-src 'self' 'unsafe-inline' https://use.typekit.net; img-src 'self' data: https: blob:; font-src 'self' https://use.typekit.net https://p.typekit.net; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net; frame-src https://www.googletagmanager.com; object-src 'none'; base-uri 'self';">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://use.typekit.net; style-src 'self' 'unsafe-inline' https://use.typekit.net; img-src 'self' data: https: blob:; font-src 'self' https://use.typekit.net https://p.typekit.net; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net; frame-src https://www.googletagmanager.com; object-src 'none'; base-uri 'self';">
 
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
@@ -114,6 +115,18 @@
         .section-colorway-pastel-turquoise {
             background-color: #2a6b61;
         }
+
+        @media (max-width: 669px) {
+            #section-2 .content-over-img {
+                background-image: url('wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-669x815.webp');
+                background-size: cover;
+                background-position: center;
+            }
+
+            #section-2 .content-over-img__img {
+                display: none;
+            }
+        }
     </style>
 
     <style id='toc-screen-inline-css' type='text/css'>
@@ -138,6 +151,26 @@
     <link rel='preload'
         href='wp-content/uploads/2025/12/u2554752938_Expand_image_-chaos_20_-ar_32_-profile_f7odit3_030cbe68-e877-44b9-9a6d-652d7f8cea38_2-1-669x815.webp'
         media='(max-width: 669px)' as='image' type='image/webp'>
+
+    <style>
+        /* Portrait phones: give section a minimum height so the bg image fills it */
+        @media (max-width: 669px) and (orientation: portrait) {
+            #section-2 .content-over-img {
+                min-height: 100svh;
+                /* svh = small viewport height, accounts for browser chrome */
+            }
+
+            #section-2 .content-over-img__img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    </style>
+
+
 
     <style>
         @font-face {
@@ -309,9 +342,9 @@
                     <a href="#contact">Contact</a>
                 </li>
                 <li class="menu-item menu-item--btn bg-colorway-black">
-                    <span><a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer' class='btn--full btn btn--regular'
-                            role="button"><span class="btn__txt"><span class="btn__txt-inner"
-                                    data-txt="View GitHub">View GitHub</span></span></a></span>
+                    <span><a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
+                            class='btn--full btn btn--regular' role="button"><span class="btn__txt"><span
+                                    class="btn__txt-inner" data-txt="View GitHub">View GitHub</span></span></a></span>
                 </li>
             </ul>
         </nav>
@@ -339,8 +372,9 @@
                     <a href="index.html" class="header__logo-link">Hulash Chand</a>
                 </div>
                 <div class="header__btn">
-                    <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer' class='btn--small btn' role="button"><span
-                            class="btn__txt"><span class="btn__txt-inner" data-txt="View GitHub">View
+                    <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
+                        class='btn--small btn' role="button"><span class="btn__txt"><span class="btn__txt-inner"
+                                data-txt="View GitHub">View
                                 GitHub</span></span></a>
                 </div>
             </div>
@@ -373,9 +407,9 @@
                     <p style="text-align: center;"><span class="h5">I'm a full-stack developer and data engineer based
                             in London, UK. I build web applications, data pipelines, and creative ML projects — with a
                             focus on clean code, intuitive UX, and real-world impact.</span></p>
-                    <p style="text-align: center;"><a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
-                            class='btn--outline btn btn--regular'><span class="btn__txt"><span class="btn__txt-inner"
-                                    data-txt="View My Work">View My Work</span></span></a>
+                    <p style="text-align: center;"><a href='https://github.com/hulashc' target='_blank'
+                            rel='noopener noreferrer' class='btn--outline btn btn--regular'><span class="btn__txt"><span
+                                    class="btn__txt-inner" data-txt="View My Work">View My Work</span></span></a>
                 </div>
             </div>
         </section>
@@ -806,8 +840,9 @@
             </div>
             <div class="section section--small mt-small">
                 <div class="txt-center content">
-                    <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer' class='btn--outline btn btn--regular'><span
-                            class="btn__txt"><span class="btn__txt-inner" data-txt="All Posts">All
+                    <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
+                        class='btn--outline btn btn--regular'><span class="btn__txt"><span class="btn__txt-inner"
+                                data-txt="All Posts">All
                                 Posts</span></span></a>
                 </div>
             </div>
@@ -816,7 +851,8 @@
         <section id="section-9" class="section-image-links">
             <ul class="img-links" style="--count: 4;">
                 <li class="img-links__item active" data-img-link>
-                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'>
+                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
+                        rel='noopener noreferrer'>
                         <picture>
                             <source
                                 srcset="wp-content/uploads/2025/11/u2554752938_A_tutor_and_a_student_sit_by_the_window_of_a_luxuri_48728427-c697-4fc7-816e-af8c5a94d04b-669x380.webp"
@@ -831,7 +867,8 @@
                     </a>
                 </li>
                 <li class="img-links__item" data-img-link>
-                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'>
+                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
+                        rel='noopener noreferrer'>
                         <picture>
                             <source
                                 srcset="wp-content/uploads/2025/10/u2554752938_Happy_teenagers_-chaos_10_-ar_34_-sref_httpss._9a86beae-573e-400f-a8e0-d81c7aa6a175_0-669x380.webp"
@@ -847,7 +884,8 @@
                     </a>
                 </li>
                 <li class="img-links__item" data-img-link>
-                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'>
+                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
+                        rel='noopener noreferrer'>
                         <picture>
                             <source
                                 srcset="wp-content/uploads/2025/10/mattheweva_56578_dynamic_angle_The_pristine_entrance_of_an_eleg_057a44b1-f513-4206-8768-90d9075799f7-669x380.webp"
@@ -862,7 +900,8 @@
                     </a>
                 </li>
                 <li class="img-links__item" data-img-link>
-                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'>
+                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
+                        rel='noopener noreferrer'>
                         <picture>
                             <source
                                 srcset="wp-content/uploads/2025/11/u2554752938_candid_moment_of_two_young_children_laughing_and__a5662579-f20d-491c-8887-ccf1401704dd_2-669x380.webp"
@@ -897,9 +936,9 @@
                                         <em><span style="color: #f5d2b5;">care</span> <span style="color: #f5d2b5;">and
                                                 clarity</span></em>.<br /></span></h3>
                                 <p>&nbsp;</p>
-                                <p><span style="color: #ffffff;"><a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
-                                            class='btn--outline btn btn--regular'><span class="btn__txt"><span
-                                                    class="btn__txt-inner" data-txt="My GitHub">My
+                                <p><span style="color: #ffffff;"><a href='https://github.com/hulashc' target='_blank'
+                                            rel='noopener noreferrer' class='btn--outline btn btn--regular'><span
+                                                class="btn__txt"><span class="btn__txt-inner" data-txt="My GitHub">My
                                                     GitHub</span></span></a></span></p>
                             </div>
                         </div>
@@ -935,8 +974,9 @@
             <div class="footer__section footer__section--main pv-small bg-colorway-black">
                 <div class="footer__section-inner">
                     <div class="footer__btns">
-                        <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer' class='btn--outline btn btn--regular'><span
-                                class="btn__txt"><span class="btn__txt-inner" data-txt="GitHub">GitHub</span></span></a>
+                        <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
+                            class='btn--outline btn btn--regular'><span class="btn__txt"><span class="btn__txt-inner"
+                                    data-txt="GitHub">GitHub</span></span></a>
                         <a href='https://www.linkedin.com/in/hulash' target='_blank' rel='noopener noreferrer'
                             class='btn--outline btn btn--regular'><span class="btn__txt"><span class="btn__txt-inner"
                                     data-txt="LinkedIn">LinkedIn</span></span></a>
