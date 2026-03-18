@@ -114,6 +114,22 @@
         .section-colorway-pastel-turquoise {
             background-color: #2a6b61;
         }
+
+        /* ── Mobile parallax fix ──────────────────────────────────────
+           On mobile the parallax script can offset the image out of
+           view or set it invisible before it gets a chance to render.
+           We lock transform/opacity to safe values on small screens.
+        ────────────────────────────────────────────────────────────── */
+        @media (max-width: 768px) {
+            #section-2 [data-parallax],
+            #section-2 .content-over-img__img,
+            #section-2 .content-over-img__img img {
+                transform: none !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                will-change: auto !important;
+            }
+        }
     </style>
 
     <style id='toc-screen-inline-css' type='text/css'>
@@ -384,10 +400,10 @@
             <div class="content-over-img" data-parallax>
                 <picture class="content-over-img__img">
                     <source
-                        srcset="wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-669x815.webp"
+                        srcset="/wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-669x815.webp"
                         media="(max-width: 669px)">
                     <img loading="lazy" class="img-full" width='2560' height='1280'
-                        src='wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-2560x1280.webp'
+                        src='/wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-2560x1280.webp'
                         alt=''>
                 </picture>
                 <div class="content-over-img__inner txt-colorway-light">
