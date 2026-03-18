@@ -30,6 +30,117 @@
 		document.querySelector(':root').style.setProperty('--background', '#f2d9a7');
 		document.querySelector(':root').style.setProperty('--mono', '#f2d9a7');
 	</script>
+	<style>
+		.gita-verse-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding: 60px 40px;
+			min-height: 100%;
+			background: #fff;
+		}
+
+		.gita-verse-card {
+			width: 100%;
+			max-width: 700px;
+			background: #faf8f3;
+			border: 1px solid #e8e0d5;
+			padding: 40px;
+			border-radius: 4px;
+			box-sizing: border-box;
+		}
+
+		.gita-verse-section {
+			margin-bottom: 28px;
+		}
+
+		.gita-verse-section:last-child {
+			margin-bottom: 0;
+		}
+
+		.gita-section-label {
+			font-size: 0.65rem;
+			letter-spacing: 0.2em;
+			text-transform: uppercase;
+			color: #999;
+			margin: 0 0 10px 0;
+			font-weight: 600;
+		}
+
+		.gita-section-text {
+			font-size: 1rem;
+			line-height: 1.8;
+			color: #2c2c2c;
+			margin: 0;
+			word-break: break-word;
+			overflow-wrap: break-word;
+			white-space: pre-wrap;
+		}
+
+		.gita-sanskrit {
+			font-family: 'Noto Sans Devanagari', serif;
+			font-size: 1.05rem;
+			color: #1a1a1a;
+		}
+
+		.gita-telugu {
+			font-family: 'Noto Sans Telugu', sans-serif;
+			font-size: 0.95rem;
+			color: #333;
+		}
+
+		.gita-english {
+			font-style: italic;
+			color: #555;
+			font-size: 0.95rem;
+		}
+
+		.gita-loading {
+			text-align: center;
+			color: #999;
+			font-size: 0.9rem;
+		}
+
+		.gita-error {
+			color: #d9534f;
+			font-size: 0.85rem;
+			text-align: center;
+		}
+
+		.gita-buttons {
+			display: flex;
+			gap: 12px;
+			margin-top: 24px;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.gita-btn {
+			background: transparent;
+			border: 1px solid #d4c5b0;
+			color: #666;
+			padding: 8px 16px;
+			font-size: 0.75rem;
+			letter-spacing: 0.08em;
+			cursor: pointer;
+			border-radius: 2px;
+			transition: all 0.2s;
+		}
+
+		.gita-btn:hover {
+			border-color: #f2d9a7;
+			color: #f2d9a7;
+		}
+
+		.gita-verse-info {
+			text-align: center;
+			font-size: 0.75rem;
+			color: #aaa;
+			margin-bottom: 20px;
+			letter-spacing: 0.1em;
+		}
+	</style>
 </head>
 
 <body class="project init">
@@ -67,10 +178,48 @@
 				</div>
 
 				<div class="large">
+					<div class="gita-verse-container">
+						<div class="gita-verse-card">
+							<div class="gita-verse-info" id="gita-info">Chapter · Verse</div>
+							
+							<div class="gita-verse-section">
+								<p class="gita-section-label">Sanskrit</p>
+								<p class="gita-section-text gita-sanskrit" id="gita-sanskrit">लोडिंग...</p>
+							</div>
+
+							<div class="gita-verse-section">
+								<p class="gita-section-label">Telugu Translation</p>
+								<p class="gita-section-text gita-telugu" id="gita-telugu">లోడ్ అవుతోంది...</p>
+							</div>
+
+							<div class="gita-verse-section">
+								<p class="gita-section-label">English Translation</p>
+								<p class="gita-section-text gita-english" id="gita-english">Loading...</p>
+							</div>
+
+							<div class="gita-error" id="gita-error" style="display:none;"></div>
+
+							<div class="gita-buttons">
+								<button class="gita-btn" onclick="gitaFetchRandom()">Random Verse</button>
+								<button class="gita-btn" onclick="gitaToggleInput()">Go to Verse</button>
+							</div>
+
+							<div id="gita-input-box" style="display:none; gap:8px; margin-top:12px; justify-content:center; flex-wrap:wrap;">
+								<input type="number" id="gita-ch" placeholder="Chapter" min="1" max="18"
+									style="background:#fff;border:1px solid #ddd;color:#333;padding:6px 8px;width:80px;font-size:0.75rem;border-radius:2px;">
+								<input type="number" id="gita-vs" placeholder="Verse" min="1"
+									style="background:#fff;border:1px solid #ddd;color:#333;padding:6px 8px;width:80px;font-size:0.75rem;border-radius:2px;">
+								<button class="gita-btn" onclick="gitaFetchSpecific()" style="margin-top:0;">Go</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="large">
 					<div>
 						<img src="/content/uploads/2025/bagvadh-gita-telugu/bagvadh-gita-1.png"
 							srcset="/content/uploads/2025/bagvadh-gita-telugu/bagvadh-gita-1.png 1280w" sizes="100vw"
-							alt="Bhagavad Gita Telugu – slide 2">
+							alt="Bhagavad Gita Telugu – slide 3">
 					</div>
 				</div>
 
@@ -88,7 +237,7 @@
 						technology.</p>
 				</div>
 				<div id="project-info-counter">
-					<span>1</span><span>/2</span>
+					<span>1</span><span>/3</span>
 					<span class="next"></span>
 				</div>
 			</div>
@@ -101,7 +250,119 @@
 	</footer>
 	<script>
 		document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+		const GITA_CHAPTERS = [47, 72, 43, 42, 29, 47, 30, 28, 34, 42, 55, 20, 35, 27, 20, 24, 28, 78];
+		const GITA_BASE = 'https://vedicscriptures.github.io';
+		const teluguCache = {};
+
+		function gitaRandInt(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		async function gitaFetchRandom() {
+			const ch = gitaRandInt(1, 18);
+			const vs = gitaRandInt(1, GITA_CHAPTERS[ch - 1]);
+			await gitaLoad(ch, vs);
+		}
+
+		async function gitaFetchSpecific() {
+			const ch = parseInt(document.getElementById('gita-ch').value);
+			const vs = parseInt(document.getElementById('gita-vs').value);
+			if (!ch || !vs) {
+				gitaShowError('Enter both chapter and verse.');
+				return;
+			}
+			if (ch < 1 || ch > 18) {
+				gitaShowError('Chapter must be 1–18.');
+				return;
+			}
+			if (vs < 1 || vs > GITA_CHAPTERS[ch - 1]) {
+				gitaShowError('Verse ' + vs + ' does not exist in chapter ' + ch + '.');
+				return;
+			}
+			await gitaLoad(ch, vs);
+		}
+
+		async function gitaLoad(ch, vs) {
+			try {
+				document.getElementById('gita-error').style.display = 'none';
+				document.getElementById('gita-info').textContent = 'Chapter ' + ch + ' · Verse ' + vs;
+				document.getElementById('gita-sanskrit').textContent = 'लोडिंग...';
+				document.getElementById('gita-telugu').textContent = 'లోడ్ అవుతోంది...';
+				document.getElementById('gita-english').textContent = 'Loading...';
+
+				const res = await fetch(GITA_BASE + '/slok/' + ch + '/' + vs);
+				if (!res.ok) throw new Error('not found');
+				const data = await res.json();
+				await gitaDisplay(data, ch, vs);
+			} catch (e) {
+				gitaShowError('Could not load verse. Please try again.');
+			}
+		}
+
+		async function translateToTelugu(englishText, cacheKey) {
+			if (teluguCache[cacheKey]) return teluguCache[cacheKey];
+			try {
+				const url = 'https://api.mymemory.translated.net/get?q=' +
+					encodeURIComponent(englishText) + '&langpair=en|te';
+				const res = await fetch(url);
+				if (!res.ok) throw new Error('translation api error');
+				const json = await res.json();
+				if (json.responseStatus === 200 && json.responseData && json.responseData.translatedText) {
+					const translated = json.responseData.translatedText;
+					teluguCache[cacheKey] = translated;
+					return translated;
+				}
+				throw new Error('no translation returned');
+			} catch (e) {
+				return null;
+			}
+		}
+
+		async function gitaDisplay(data, ch, vs) {
+			const slokText = data.slok || '';
+			document.getElementById('gita-sanskrit').textContent = slokText;
+
+			const enTr = (data.siva && data.siva.et) ? data.siva.et :
+				(data.purohit && data.purohit.et) ? data.purohit.et :
+				(data.tej && data.tej.et) ? data.tej.et :
+				(data.ram && data.ram.et) ? data.ram.et :
+				'';
+
+			if (enTr) {
+				document.getElementById('gita-english').textContent = enTr;
+				const cacheKey = ch + '_' + vs;
+				const teluguText = await translateToTelugu(enTr, cacheKey);
+				if (teluguText) {
+					document.getElementById('gita-telugu').textContent = teluguText;
+				} else {
+					document.getElementById('gita-telugu').textContent = '(Translation unavailable)';
+				}
+			} else {
+				document.getElementById('gita-english').textContent = '(English translation not available)';
+				document.getElementById('gita-telugu').textContent = '(Telugu translation not available)';
+			}
+		}
+
+		function gitaShowError(msg) {
+			document.getElementById('gita-error').textContent = msg;
+			document.getElementById('gita-error').style.display = 'block';
+			document.getElementById('gita-sanskrit').textContent = '';
+			document.getElementById('gita-telugu').textContent = '';
+			document.getElementById('gita-english').textContent = '';
+		}
+
+		function gitaToggleInput() {
+			const box = document.getElementById('gita-input-box');
+			box.style.display = box.style.display === 'none' ? 'flex' : 'none';
+		}
+
+		// Load random verse on page load
+		window.addEventListener('load', function() {
+			gitaFetchRandom();
+		});
 	</script>
+
 </body>
 
 </html>
