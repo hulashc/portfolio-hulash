@@ -383,9 +383,17 @@
         <section id="section-2" class="section-text-over-image">
             <div class="content-over-img" data-parallax>
                 <picture class="content-over-img__img">
+                    <!-- Portrait phones (all modern phones in portrait) -->
+                    <source
+                        srcset="wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-430x932.webp"
+                        media="(max-width: 500px) and (orientation: portrait)"
+                        width="430" height="932">
+                    <!-- Landscape mobile / small tablet -->
                     <source
                         srcset="wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-669x815.webp"
-                        media="(max-width: 669px)">
+                        media="(max-width: 669px)"
+                        width="669" height="815">
+                    <!-- Desktop fallback -->
                     <img loading="lazy" class="img-full" width='2560' height='1280'
                         src='wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-2560x1280.webp'
                         alt=''>
