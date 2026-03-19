@@ -7,7 +7,8 @@
 
     <!-- ═══════════ SECURITY: Content Security Policy ═══════════ -->
     <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://use.typekit.net; style-src 'self' 'unsafe-inline' https://use.typekit.net; img-src 'self' data: https: blob:; font-src 'self' https://use.typekit.net https://p.typekit.net; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net; frame-src https://www.googletagmanager.com; object-src 'none'; base-uri 'self';">
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://use.typekit.net https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://use.typekit.net https://cdn.jsdelivr.net; img-src 'self' data: https: blob:; font-src 'self' https://use.typekit.net https://p.typekit.net https://cdn.jsdelivr.net; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https://cdn.jsdelivr.net; frame-src https://www.googletagmanager.com; object-src 'none'; base-uri 'self';">
+
 
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
@@ -285,6 +286,13 @@
             }
         }
     </style>
+    <!-- Lenis smooth scroll -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
 
 </head>
 
@@ -304,9 +312,6 @@
                 </li>
                 <li id="menu-item-902" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-902">
                     <a href="#blog">Blog</a>
-                </li>
-                <li id="menu-item-1058" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1058">
-                    <a href="#contact">Contact</a>
                 </li>
                 <li class="menu-item menu-item--btn bg-colorway-black">
                     <span><a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
@@ -411,62 +416,68 @@
             </div>
         </section>
 
-        <section id="skills" class="section-link-cards bg-colorway-beige">
-            <ul class="link-cards link-cards--tabs">
-                <li class="link-cards__item" data-reveal>
-                    <p class="link-cards__item-title" data-reveal-trigger>Front-End</p>
-                    <div class="link-cards__item-body" data-reveal-hidden>
-                        <p class="link-cards__item-txt txt-tiny">Building responsive, performant web interfaces with
-                            Next.js, React, TypeScript and Tailwind CSS. Experienced with real-time data, animations,
-                            and component-driven architecture.</p>
-                        <div class="link-cards__item-link">
-                            <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
-                                class='secondary-link secondary-link--full'><span
-                                    class='secondary-link__txt'>Explore</span></a>
+        <section id="skills" class="section-link-cards">
+            <div class="skills-horizontal-wrap">
+                <ul class="link-cards link-cards--tabs">
+                    <li class="link-cards__item" data-reveal>
+                        <p class="link-cards__item-title" data-reveal-trigger>Front-End</p>
+                        <div class="link-cards__item-body" data-reveal-hidden>
+                            <p class="link-cards__item-txt txt-tiny">Building responsive, performant web interfaces with
+                                Next.js, React, TypeScript and Tailwind CSS. Experienced with real-time data,
+                                animations,
+                                and component-driven architecture.</p>
+                            <div class="link-cards__item-link">
+                                <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
+                                    class='secondary-link secondary-link--full'><span
+                                        class='secondary-link__txt'>Explore</span></a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class="link-cards__item" data-reveal>
-                    <p class="link-cards__item-title" data-reveal-trigger>Back-End &amp; Data</p>
-                    <div class="link-cards__item-body" data-reveal-hidden>
-                        <p class="link-cards__item-txt txt-tiny">Designing and managing databases with Supabase and
-                            PostgreSQL, building data pipelines in Python and SQL, and creating REST APIs. Comfortable
-                            with ETL processes, data modelling, and backend logic.</p>
-                        <div class="link-cards__item-link">
-                            <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
-                                class='secondary-link secondary-link--full'><span
-                                    class='secondary-link__txt'>Explore</span></a>
+                    </li>
+                    <li class="link-cards__item" data-reveal>
+                        <p class="link-cards__item-title" data-reveal-trigger>Back-End &amp; Data</p>
+                        <div class="link-cards__item-body" data-reveal-hidden>
+                            <p class="link-cards__item-txt txt-tiny">Designing and managing databases with Supabase and
+                                PostgreSQL, building data pipelines in Python and SQL, and creating REST APIs.
+                                Comfortable
+                                with ETL processes, data modelling, and backend logic.</p>
+                            <div class="link-cards__item-link">
+                                <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
+                                    class='secondary-link secondary-link--full'><span
+                                        class='secondary-link__txt'>Explore</span></a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class="link-cards__item" data-reveal>
-                    <p class="link-cards__item-title" data-reveal-trigger>Machine Learning &amp; AI</p>
-                    <div class="link-cards__item-body" data-reveal-hidden>
-                        <p class="link-cards__item-txt txt-tiny">Experimenting with and deploying creative ML and AI
-                            projects. Interested in practical applications of LLMs, image generation, financial
-                            prediction models, and AI-assisted tooling.</p>
-                        <div class="link-cards__item-link">
-                            <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
-                                class='secondary-link secondary-link--full'><span
-                                    class='secondary-link__txt'>Explore</span></a>
+                    </li>
+                    <li class="link-cards__item" data-reveal>
+                        <p class="link-cards__item-title" data-reveal-trigger>Machine Learning &amp; AI</p>
+                        <div class="link-cards__item-body" data-reveal-hidden>
+                            <p class="link-cards__item-txt txt-tiny">Experimenting with and deploying creative ML and AI
+                                projects. Interested in practical applications of LLMs, image generation, financial
+                                prediction models, and AI-assisted tooling.</p>
+                            <div class="link-cards__item-link">
+                                <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
+                                    class='secondary-link secondary-link--full'><span
+                                        class='secondary-link__txt'>Explore</span></a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class="link-cards__item" data-reveal>
-                    <p class="link-cards__item-title" data-reveal-trigger>Data Visualisation</p>
-                    <div class="link-cards__item-body" data-reveal-hidden>
-                        <p class="link-cards__item-txt txt-tiny">Creating rich, interactive dashboards and charts using
-                            Tableau, Plotly, and custom React components. Specialising in financial and sports data
-                            visualisation that tells a clear story.</p>
-                        <div class="link-cards__item-link">
-                            <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
-                                class='secondary-link secondary-link--full'><span
-                                    class='secondary-link__txt'>Explore</span></a>
+                    </li>
+                    <li class="link-cards__item" data-reveal>
+                        <p class="link-cards__item-title" data-reveal-trigger>Data Visualisation</p>
+                        <div class="link-cards__item-body" data-reveal-hidden>
+                            <p class="link-cards__item-txt txt-tiny">Creating rich, interactive dashboards and charts
+                                using
+                                Tableau, Plotly, and custom React components. Specialising in financial and sports data
+                                visualisation that tells a clear story.</p>
+                            <div class="link-cards__item-link">
+                                <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
+                                    class='secondary-link secondary-link--full'><span
+                                        class='secondary-link__txt'>Explore</span></a>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </div>
         </section>
+
 
         <section id="projects" class="projects-section">
 
@@ -554,37 +565,6 @@
                 </div>
             </div>
         </section>
-
-        <section id="contact" class="section-text-over-image">
-            <div class="content-over-img" data-parallax>
-                <picture class="content-over-img__img">
-                    <source srcset="wp-content/uploads/2025/12/contact_image_430x932.webp"
-                        media="(max-width: 500px) and (orientation: portrait)" width="430" height="932">
-                    <source srcset="wp-content/uploads/2025/12/contact_image_669x815.webp" media="(max-width: 669px)"
-                        width="669" height="815">
-                    <img loading="lazy" class="img-full" width='2560' height='1280'
-                        src='wp-content/uploads/2025/12/contact_image_2560x1280.webp' alt='Get in touch'>
-                </picture>
-                <div class="content-over-img__inner txt-colorway-light">
-                    <div class="content-over-img__top">
-                        <h2 class="txt-script">Get In Touch</h2>
-                        <div class="content-over-img__cols">
-                            <div class="content-over-img__col content-over-img__col--primary content">
-                                <h3><span class="h2">Let's build something great together</span></h3>
-                                <p><span class="h6">I'm open to full-time roles, freelance projects, and interesting
-                                        collaborations.</span></p>
-                                <!-- ═══════════ SECURITY: Email obfuscated via JS ═══════════ -->
-                                <p><a href="#" id="email-btn" class="btn btn--regular btn--outline">
-                                        <span class="btn__txt"><span class="btn__txt-inner" data-txt="Email Me">Email
-                                                Me</span></span>
-                                    </a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
         <section id="blog" class="section-article-slider pv-large section-colorway-beige">
             <div class="section section--small mb-medium">
@@ -788,9 +768,11 @@
 
 
         <div class='sticky-cta-btn' data-sticky-cta-btn>
-            <a href='#contact' class='btn--large btn--sticky btn' role="button"><span class="btn__txt"><span
-                        class="btn__txt-inner" data-txt="Hire Me">Hire Me</span></span></a>
+            <a href="#" id="email-hireme-btn" class='btn--large btn--sticky btn' role="button"><span
+                    class="btn__txt"><span class="btn__txt-inner" data-txt="Hire Me">Hire Me</span></span></a>
         </div>
+
+
 
         <section id="footer-1" class="section-call-to-action bg-colorway-beige">
             <div class="cta">
@@ -849,7 +831,6 @@
                                         <li class="menu-item"><a href="#projects">Projects</a></li>
                                         <li class="menu-item"><a href="#skills">Skills</a></li>
                                         <li class="menu-item"><a href="#blog">Blog</a></li>
-                                        <li class="menu-item"><a href="#contact">Contact</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -891,7 +872,7 @@
             var u = 'hulashc';
             var d = 'gmail.com';
             var href = 'mailto:' + u + '@' + d;
-            var ids = ['email-btn', 'email-cta-btn', 'email-footer-btn'];
+            var ids = ['email-btn', 'email-cta-btn', 'email-footer-btn', 'email-hireme-btn'];
             ids.forEach(function (id) {
                 var el = document.getElementById(id);
                 if (el) el.setAttribute('href', href);
@@ -944,6 +925,7 @@
             preview.style.top = y + 'px';
         }
     </script>
+    <script src="scroll.js" defer></script>
 
 </body>
 
