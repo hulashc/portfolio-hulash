@@ -37,3 +37,15 @@
     border-color: #f5d2b5;
     opacity: 0.4;
 }
+
+/* ═══════════ KEN BURNS HERO ═══════════ */
+@keyframes kenburns {
+    0%   { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+.flagship-banner__img img {
+    animation: kenburns 6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    transform-origin: center center;
+    will-change: transform;
+}
