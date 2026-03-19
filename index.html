@@ -387,6 +387,21 @@
                             rel='noopener noreferrer' class='btn--outline btn btn--regular'><span class="btn__txt"><span
                                     class="btn__txt-inner" data-txt="View My Work">View My Work</span></span></a>
                     </p>
+                    <!-- ═══════════ STATS COUNTERS ═══════════ -->
+                    <div class="about-stats">
+                        <div class="about-stats__item">
+                            <span class="about-stats__number" data-count="5" data-suffix="+">0+</span>
+                            <span class="about-stats__label">Projects</span>
+                        </div>
+                        <div class="about-stats__item">
+                            <span class="about-stats__number" data-count="3" data-suffix="">0</span>
+                            <span class="about-stats__label">Years Experience</span>
+                        </div>
+                        <div class="about-stats__item">
+                            <span class="about-stats__number" data-count="10" data-suffix="+">0+</span>
+                            <span class="about-stats__label">Technologies</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -598,7 +613,7 @@
                             </article>
                         </div>
                         <div class="flickity__item">
-                            <article class="article bg-colorway-light-orange">
+                            name<article class="article bg-colorway-light-orange">
                                 <div class="meta-bar">
                                     <div class="meta-bar__reading-time"><span>5</span> <span>min</span></div>
                                     <div class="meta-bar__date">February 2026</div>
@@ -930,6 +945,45 @@
         }
     </script>
     <script src="scroll.js" defer></script>
+
+    <!-- ═══════════ STATS COUNTER JS ═══════════ -->
+    <script>
+        (function () {
+            var counters = document.querySelectorAll('.about-stats__number');
+            var triggered = false;
+
+            function animateCounters() {
+                counters.forEach(function (el) {
+                    var target = parseInt(el.dataset.count);
+                    var suffix = el.dataset.suffix || '';
+                    var start = 0;
+                    var duration = 1500;
+                    var startTime = null;
+
+                    function step(timestamp) {
+                        if (!startTime) startTime = timestamp;
+                        var progress = Math.min((timestamp - startTime) / duration, 1);
+                        var value = Math.floor(progress * target);
+                        el.textContent = value + suffix;
+                        if (progress < 1) requestAnimationFrame(step);
+                    }
+                    requestAnimationFrame(step);
+                });
+            }
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting && !triggered) {
+                        triggered = true;
+                        animateCounters();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            var statsEl = document.querySelector('.about-stats');
+            if (statsEl) observer.observe(statsEl);
+        })();
+    </script>
 
 </body>
 
