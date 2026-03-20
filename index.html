@@ -5,13 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-    <!-- ═══════════ SECURITY: Content Security Policy ═══════════ -->
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://use.typekit.net https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://use.typekit.net https://cdn.jsdelivr.net; img-src 'self' data: https: blob:; font-src 'self' https://use.typekit.net https://p.typekit.net https://cdn.jsdelivr.net; connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https://cdn.jsdelivr.net; frame-src https://www.googletagmanager.com; object-src 'none'; base-uri 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+    script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://use.typekit.net https://cdn.jsdelivr.net;
+    style-src 'self' 'unsafe-inline' https://use.typekit.net https://p.typekit.net https://cdn.jsdelivr.net;
+    img-src 'self' data: https: blob:;
+    font-src 'self' https://use.typekit.net https://p.typekit.net https://cdn.jsdelivr.net;
+    connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https://cdn.jsdelivr.net ws://127.0.0.1:3001;
+    frame-src https://www.googletagmanager.com;
+    object-src 'none';
+    base-uri 'self';">
+
 
     <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
 
-    <title>Hulash Chand | Full-Stack Developer &amp; Data Engineer</title>
+    <title>Hulash Chand | Data Engineer &amp; Creative Developer</title>
     <meta name="description"
         content="Hulash Chand – Full-stack developer and data engineer based in London, UK. Building web apps, data pipelines, and creative ML projects with Next.js, Python, and Supabase." />
     <link rel="canonical" href="https://www.hulash.com/" />
@@ -127,8 +134,10 @@
 
     <link rel='preconnect' href='https://use.typekit.net/' crossorigin>
     <link rel='preconnect' href='https://p.typekit.net/' crossorigin>
-    <link rel='stylesheet' id='typekit-fonts-css' href='https://use.typekit.net/ucv6hhc.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='lionheart-css' href='wp-content/themes/lionheart/dist/css/app.min8062.css?ver=1764940445' type='text/css' media='all' />
+    <link rel='stylesheet' id='typekit-fonts-css' href='https://use.typekit.net/ucv6hhc.css' type='text/css'
+        media='all' />
+    <link rel='stylesheet' id='lionheart-css' href='wp-content/themes/lionheart/dist/css/app.min8062.css?ver=1764940445'
+        type='text/css' media='all' />
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="components/about.css">
 
@@ -181,11 +190,8 @@
                 <li id="menu-item-1869" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1869">
                     <a href="projects.html">Projects</a>
                 </li>
-                <li id="menu-item-1870" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1870">
-                    <a href="#skills">Skills</a>
-                </li>
                 <li id="menu-item-902" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-902">
-                    <a href="#blog">Blog</a>
+                    <a href="blog.html">Blog</a>
                 </li>
                 <li class="menu-item menu-item--btn bg-colorway-black">
                     <span><a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
@@ -227,175 +233,43 @@
 
         <section id="banner-1" class="section-flagship-banner">
             <div class="flagship-banner" data-parallax>
+
                 <picture class="flagship-banner__img">
                     <source
                         srcset="wp-content/uploads/2025/12/u2554752938_Expand_image_-chaos_20_-ar_32_-profile_f7odit3_030cbe68-e877-44b9-9a6d-652d7f8cea38_2-1-669x815.webp"
                         media="(max-width: 669px)">
                     <img class="img-full" width='2560' height='1280'
                         src='wp-content/uploads/2025/12/u2554752938_Expand_image_-chaos_20_-ar_32_-profile_f7odit3_030cbe68-e877-44b9-9a6d-652d7f8cea38_2-1-2560x1280.webp'
-                        alt='Hulash Chand – Full-Stack Developer'>
+                        alt='Hulash Chand – Full-Stack Developer based in London'>
                 </picture>
+
+                <!-- Top-left location tag -->
                 <span class="flagship-banner__header-txt">London, UK</span>
+
+                <!-- Title: top of hero as before -->
                 <div class="flagship-banner__content txt-colorway-light">
                     <h1 class="flagship-banner__title"><span data-fit-txt>Hulash Chand</span></h1>
                 </div>
-                <div class="flagship-banner__txt">
-                    <p class="flagship-banner__txt-col">Full-Stack<br />Developer</p>
-                    <p class="flagship-banner__txt-col">Data<br />Engineer</p>
-                </div>
-            </div>
-        </section>
 
-        <section id="about" class="section-text-content pv-large section-colorway-dark-beige">
-            <div class="section section--medium">
-                <div class="content">
-                    <p style="text-align: center;"><span class="h5">I'm a full-stack developer and data engineer based
-                            in London, UK. I build web applications, data pipelines, and creative ML projects — with a
-                            focus on clean code, intuitive UX, and real-world impact.</span></p>
-                    <p style="text-align: center;"><a href='projects.html'
-                            class='btn--outline btn btn--regular'><span class="btn__txt"><span
-                                    class="btn__txt-inner" data-txt="View My Work">View My Work</span></span></a>
+                <!-- Centred about block: replaces role columns -->
+                <div class="flagship-banner__about">
+                    <p class="flagship-banner__about-copy">
+                        I'm a full-stack developer and data engineer based in London, UK.
+                        I build web applications, data pipelines, and creative ML projects —
+                        with a focus on clean code, intuitive UX, and real-world impact.
                     </p>
-                    <!-- ═══════════ STATS COUNTERS ═══════════ -->
-                    <div class="about-stats">
-                        <div class="about-stats__item">
-                            <span class="about-stats__number" data-count="5" data-suffix="+">0+</span>
-                            <span class="about-stats__label">Projects</span>
-                        </div>
-                        <div class="about-stats__item">
-                            <span class="about-stats__number" data-count="3" data-suffix="">0</span>
-                            <span class="about-stats__label">Years Experience</span>
-                        </div>
-                        <div class="about-stats__item">
-                            <span class="about-stats__number" data-count="10" data-suffix="+">0+</span>
-                            <span class="about-stats__label">Technologies</span>
-                        </div>
-                    </div>
+                    <a href="projects.html" class="flagship-banner__about-cta">
+                        View My Work
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <line x1="7" y1="17" x2="17" y2="7" />
+                            <polyline points="7 7 17 7 17 17" />
+                        </svg>
+                    </a>
                 </div>
+
             </div>
         </section>
 
-        <section id="section-2" class="section-text-over-image">
-            <div class="content-over-img" data-parallax>
-                <picture class="content-over-img__img">
-                    <picture class="flagship-banner__img">
-                        <source
-                            srcset="wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-669x815.webp"
-                            media="(max-width: 669px)">
-                        <img class="img-full" width='2560' height='1280'
-                            src='wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-2560x1280.webp'
-                            alt='Hulash Chand – Full-Stack Developer'>
-                    </picture>
-                    <div class="content-over-img__inner txt-colorway-light">
-                        <div class="content-over-img__top">
-                            <h2 class="txt-script">What I Do</h2>
-                            <div class="content-over-img__cols">
-                                <div class="content-over-img__col content-over-img__col--primary content">
-                                    <h3><span class="h2">Building modern web apps, intelligent pipelines and data-driven
-                                            products<br /></span></h3>
-                                    <p><span class="h6">From Next.js front-ends and Supabase backends to Python data
-                                            engineering and ML experimentation — I bring ideas to life
-                                            end-to-end.</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </section>
-
-        <section id="skills" class="section-link-cards">
-            <div class="skills-horizontal-wrap">
-                <ul class="link-cards link-cards--tabs">
-                    <li class="link-cards__item" data-reveal>
-                        <p class="link-cards__item-title" data-reveal-trigger>Front-End</p>
-                        <div class="link-cards__item-body" data-reveal-hidden>
-                            <p class="link-cards__item-txt txt-tiny">Building responsive, performant web interfaces with
-                                Next.js, React, TypeScript and Tailwind CSS. Experienced with real-time data,
-                                animations, and component-driven architecture.</p>
-                            <div class="link-cards__item-link">
-                                <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
-                                    class='secondary-link secondary-link--full'><span
-                                        class='secondary-link__txt'>Explore</span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="link-cards__item" data-reveal>
-                        <p class="link-cards__item-title" data-reveal-trigger>Back-End &amp; Data</p>
-                        <div class="link-cards__item-body" data-reveal-hidden>
-                            <p class="link-cards__item-txt txt-tiny">Designing and managing databases with Supabase and
-                                PostgreSQL, building data pipelines in Python and SQL, and creating REST APIs.
-                                Comfortable with ETL processes, data modelling, and backend logic.</p>
-                            <div class="link-cards__item-link">
-                                <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
-                                    class='secondary-link secondary-link--full'><span
-                                        class='secondary-link__txt'>Explore</span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="link-cards__item" data-reveal>
-                        <p class="link-cards__item-title" data-reveal-trigger>Machine Learning &amp; AI</p>
-                        <div class="link-cards__item-body" data-reveal-hidden>
-                            <p class="link-cards__item-txt txt-tiny">Experimenting with and deploying creative ML and AI
-                                projects. Interested in practical applications of LLMs, image generation, financial
-                                prediction models, and AI-assisted tooling.</p>
-                            <div class="link-cards__item-link">
-                                <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
-                                    class='secondary-link secondary-link--full'><span
-                                        class='secondary-link__txt'>Explore</span></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="link-cards__item" data-reveal>
-                        <p class="link-cards__item-title" data-reveal-trigger>Data Visualisation</p>
-                        <div class="link-cards__item-body" data-reveal-hidden>
-                            <p class="link-cards__item-txt txt-tiny">Creating rich, interactive dashboards and charts
-                                using Tableau, Plotly, and custom React components. Specialising in financial and sports
-                                data visualisation that tells a clear story.</p>
-                            <div class="link-cards__item-link">
-                                <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
-                                    class='secondary-link secondary-link--full'><span
-                                        class='secondary-link__txt'>Explore</span></a>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="section-5" class="section-quote-slider pv-large section-colorway-white">
-            <div class="hide-overflow">
-                <div class="section section--large" data-animate="fade">
-                    <div class="flickity flickity--quote" data-slider="quote"
-                        data-flickity="{&quot;autoPlay&quot;:4000}">
-                        <div class="flickity__item">
-                            <blockquote class="flickity__item-quote">
-                                <p>"Hulash has a rare combination of technical depth and creative thinking. He builds
-                                    things that actually work and look great."</p>
-                                <cite class="flickity__item-cite"><span class="flickity__item-cite-name">Colleague,
-                                        Bristol University</span></cite>
-                            </blockquote>
-                        </div>
-                        <div class="flickity__item">
-                            <blockquote class="flickity__item-quote">
-                                <p>"A self-driven engineer who goes beyond the brief. Hulash consistently delivers
-                                    clean, well-documented code and always thinks about the end user."</p>
-                                <cite class="flickity__item-cite"><span class="flickity__item-cite-name">Professional
-                                        Reference</span></cite>
-                            </blockquote>
-                        </div>
-                        <div class="flickity__item">
-                            <blockquote class="flickity__item-quote">
-                                <p>"His ability to combine data engineering with front-end development makes him an
-                                    incredibly versatile member of any team."</p>
-                                <cite class="flickity__item-cite"><span class="flickity__item-cite-name">LinkedIn
-                                        Recommendation</span></cite>
-                            </blockquote>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section id="blog" class="section-article-slider pv-large section-colorway-beige">
             <div class="section section--small mb-medium">
@@ -497,68 +371,11 @@
             </div>
             <div class="section section--small mt-small">
                 <div class="txt-center content">
-                    <a href='https://github.com/hulashc' target='_blank' rel='noopener noreferrer'
+                    <a href='blog.html' target='_blank' rel='noopener noreferrer'
                         class='btn--outline btn btn--regular'><span class="btn__txt"><span class="btn__txt-inner"
                                 data-txt="All Posts">All Posts</span></span></a>
                 </div>
             </div>
-        </section>
-
-        <section id="section-9" class="section-image-links">
-            <ul class="img-links" style="--count: 4;">
-                <li class="img-links__item active" data-img-link>
-                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
-                        rel='noopener noreferrer'>
-                        <picture>
-                            <img loading="lazy" class="img-full" width='1280' height='1699'
-                                src='wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-430x932.webp'
-                                alt='Next.js Projects'>
-                        </picture>
-                        <div class="img-links__item-title">
-                            <p class="img-links__item-title-txt">Next.js</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="img-links__item" data-img-link>
-                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
-                        rel='noopener noreferrer'>
-                        <picture>
-                            <img loading="lazy" class="img-full" width='1280' height='1699'
-                                src='wp-content/uploads/2025/12/u2554752938_Expand_image_-chaos_20_-ar_32_-profile_f7odit3_030cbe68-e877-44b9-9a6d-652d7f8cea38_2-1-2560x1280.webp'
-                                alt='Next.js Projects'>
-                        </picture>
-                        <div class="img-links__item-title">
-                            <p class="img-links__item-title-txt">Python</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="img-links__item" data-img-link>
-                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
-                        rel='noopener noreferrer'>
-                        <picture>
-                            <img loading="lazy" class="img-full" width='1280' height='1699'
-                                src='wp-content/uploads/2025/12/u2554752938_Fill_the_frame_-chaos_20_-ar_21_-sref_httpss.mj_._636324b1-8780-4264-a87e-8d181f7f18d2-2560x1280.webp'
-                                alt='Next.js Projects'>
-                        </picture>
-                        <div class="img-links__item-title">
-                            <p class="img-links__item-title-txt">ML &amp; AI</p>
-                        </div>
-                    </a>
-                </li>
-                <li class="img-links__item" data-img-link>
-                    <a class="img-links__item-link" href='https://github.com/hulashc' target='_blank'
-                        rel='noopener noreferrer'>
-                        <picture>
-                            <img loading="lazy" class="img-full" width='1280' height='1699'
-                                src='wp-content/uploads/2025/12/Screenshot-2025-12-30-at-22.53.48-150x150.webp'
-                                alt='Next.js Projects'>
-                        </picture>
-                        <div class="img-links__item-title">
-                            <p class="img-links__item-title-txt">Tableau</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
         </section>
 
         <section id="section-10" class="section-text-over-slim-image pv-inset"
@@ -567,7 +384,8 @@
                 <div class="content-over-slim-img" data-parallax style="position: relative;">
                     <video
                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;"
-                        autoplay muted loop playsinline poster="wp-content/uploads/2025/11/Black-cover-2560x1280.webp">
+                        autoplay muted loop playsinline
+                        poster="wp-content/uploads/2025/12/u2554752938_Abstract_blurred_image_out-of-focus_dreamy_backgr_1f6eb313-ebd6-433e-8305-d036317c3581_2-430x932.webp">
                         <source src="wp-content/uploads/2025/12/hero-banner-desktop.mp4" type="video/mp4">
                     </video>
                     <div class="content-over-slim-img__inner txt-colorway-light"
@@ -596,23 +414,6 @@
             <a href="#" id="email-hireme-btn" class='btn--large btn--sticky btn' role="button"><span
                     class="btn__txt"><span class="btn__txt-inner" data-txt="Hire Me">Hire Me</span></span></a>
         </div>
-
-        <section id="footer-1" class="section-call-to-action bg-colorway-beige">
-            <div class="cta">
-                <div class="cta__inner section section--large pv-small">
-                    <div class="cta__content">
-                        <div class="cta__txt content">
-                            <p><span class="h5">Available for new opportunities — let's connect.</span></p>
-                        </div>
-                        <div class="cta__form">
-                            <p><a href="#" id="email-cta-btn" class="btn btn--regular"><span class="btn__txt"><span
-                                            class="btn__txt-inner" data-txt="Get In Touch">Get In
-                                            Touch</span></span></a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <footer class="footer">
             <div class="footer__section footer__section--main pv-small bg-colorway-black">
@@ -651,7 +452,7 @@
                                         <li class="menu-item"><a href="#about">About</a></li>
                                         <li class="menu-item"><a href="projects.html">Projects</a></li>
                                         <li class="menu-item"><a href="#skills">Skills</a></li>
-                                        <li class="menu-item"><a href="#blog">Blog</a></li>
+                                        <li class="menu-item"><a href="blog.html">Blog</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -733,7 +534,9 @@
                         animateCounters();
                     }
                 });
-            }, { threshold: 0.5 });
+            }, {
+                threshold: 0.5
+            });
 
             var statsEl = document.querySelector('.about-stats');
             if (statsEl) observer.observe(statsEl);

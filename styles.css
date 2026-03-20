@@ -84,3 +84,85 @@ html {
 .section-colorway-pastel-turquoise {
     background-color: #2a6b61;
 }
+
+/* ── Hero: centred about block ───────────────────── */
+.flagship-banner__about {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    width: 100%;
+    max-width: 680px;
+    padding: 0 32px;
+    text-align: center;
+    z-index: 2;
+}
+
+.flagship-banner__about-copy {
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    font-weight: 400;                        /* was 300 */
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.88);        /* was 0.6 */
+    letter-spacing: 0.01em;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: heroCopyIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.85s forwards;
+}
+
+.flagship-banner__about-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.95);        /* was 0.7 */
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* was 0.2 */
+    padding-bottom: 4px;
+    transition: color 0.2s, border-color 0.2s;
+    opacity: 0;
+    animation: heroCopyIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 1.1s forwards;
+}
+
+.flagship-banner__about-cta:hover {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.65);
+}
+.flagship-banner__about-cta svg {
+    width: 13px;
+    height: 13px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+.flagship-banner__about-cta:hover svg {
+    transform: translate(3px, -3px);
+}
+
+@keyframes heroCopyIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Responsive ──────────────────────────────────── */
+@media (max-width: 768px) {
+    .flagship-banner__about {
+        bottom: 8%;
+        padding: 0 24px;
+    }
+    .flagship-banner__about-copy {
+        font-size: 0.9rem;
+    }
+}
+
+.flagship-banner__about-copy,
+.flagship-banner__about-cta {
+    text-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
+}
