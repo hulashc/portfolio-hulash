@@ -229,3 +229,18 @@ if (skillsTrack) {
         }
     });
 }
+
+// ── BLOG: stagger reveal ─────────────────────────────
+gsapIf('.blog-minimal__item', () => {
+    gsap.to('.blog-minimal__item', {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '#blog',
+            start: 'top 72%',
+        }
+    });
+});

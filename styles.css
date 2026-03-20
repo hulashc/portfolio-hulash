@@ -126,3 +126,182 @@ html {
 .flagship-banner__about-cta {
     text-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
 }
+
+/* ── Blog Minimal ────────────────────────────────── */
+.blog-minimal {
+    padding: 120px 0 100px;
+    background: #ffffff;
+}
+
+.blog-minimal__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 6vw;
+}
+
+/* Header row */
+.blog-minimal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 72px;
+}
+.blog-minimal__eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(15, 13, 10, 0.35);
+    font-weight: 400;
+}
+.blog-minimal__all {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(15, 13, 10, 0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.blog-minimal__all:hover { color: #0f0d0a; }
+.blog-minimal__all svg {
+    width: 12px; height: 12px;
+    transition: transform 0.25s ease;
+}
+.blog-minimal__all:hover svg { transform: translate(3px, -3px); }
+
+/* List */
+.blog-minimal__list {
+    list-style: none;
+}
+
+/* Each row */
+.blog-minimal__item {
+    /* stagger set by JS */
+    opacity: 0;
+    transform: translateY(28px);
+}
+
+.blog-minimal__link {
+    position: relative;
+    display: grid;
+    grid-template-columns: 52px 1fr auto;
+    align-items: center;
+    gap: 32px;
+    padding: 28px 0;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+}
+
+/* Hover underline sweep */
+.blog-minimal__line {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 1px;
+    background: rgba(15, 13, 10, 0.08);
+}
+.blog-minimal__line::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 13, 10, 0.55);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.blog-minimal__item:hover .blog-minimal__line::after {
+    transform: scaleX(1);
+}
+/* Top border on first item */
+.blog-minimal__item:first-child .blog-minimal__link::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 1px;
+    background: rgba(15, 13, 10, 0.08);
+}
+
+/* Index number */
+.blog-minimal__index {
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: color: rgba(15, 13, 10, 0.15);
+    font-variant-numeric: tabular-nums;
+    transition: color 0.3s ease;
+    user-select: none;
+}
+.blog-minimal__item:hover .blog-minimal__index {
+    color: rgba(15, 13, 10, 0.45);
+}
+
+/* Body */
+.blog-minimal__body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+.blog-minimal__tag {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(15, 13, 10, 0.28);
+    transition: color 0.3s ease;
+}
+.blog-minimal__item:hover .blog-minimal__tag {
+    color: rgba(15, 13, 10, 0.6);
+}
+.blog-minimal__title {
+    font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+    font-weight: 400;
+    color: rgba(15, 13, 10, 0.55);
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+}
+.blog-minimal__item:hover .blog-minimal__title {
+    color: #0f0d0a;
+}
+
+/* Right col */
+.blog-minimal__right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    flex-shrink: 0;
+}
+.blog-minimal__date,
+.blog-minimal__read {
+    font-size: 0.68rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: rgba(15, 13, 10, 0.22);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+.blog-minimal__item:hover .blog-minimal__date,
+.blog-minimal__item:hover .blog-minimal__read {
+    color: rgba(15, 13, 10, 0.45);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .blog-minimal__link {
+        grid-template-columns: 36px 1fr;
+        grid-template-rows: auto auto;
+        gap: 16px;
+    }
+    .blog-minimal__right {
+        grid-column: 2;
+        flex-direction: row;
+        gap: 12px;
+        align-items: center;
+        margin-top: -4px;
+    }
+}
